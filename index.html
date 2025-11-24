@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="card">
+        <h1>Login</h1>
+        <form action="">
+          <input type="text" name="user" placeholder="Digite o nome de Usuario" />
+
+          <input type="password" name="senha" placeholder="Digite sua Senha" />
+
+        </form>
+
+        <a href="#" class="btn">Login</a>
+
+        <p>Ainda não tem uma conta?  <b>Registre-se</b> </p>
+      </div>
+    </main>
+
+  <canvas id="canvas"></canvas>
+
+<script>
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+
+// ajustar ao tamanho da tela
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+// criar partículas
+const dots = [];
+const DOTS = 150;
+
+for (let i = 0; i < DOTS; i++) {
+    dots.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        size: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4
+    });
+}
+
+let mouse = { x: null, y: null };
+
+window.addEventListener("mousemove", e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
+
+function animate() {
+    ctx.clearRect(0, 0, w, h);
+
+    dots.forEach(dot => {
+        dot.x += dot.vx;
+        dot.y += dot.vy;
+
+        // efeito de repulsão leve ao mouse
+        if (mouse.x != null) {
+            let dx = mouse.x - dot.x;
+            let dy = mouse.y - dot.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+                dot.x -= dx / 50;
+                dot.y -= dy / 50;
+            }
+        }
+
+        // reaparecer do outro lado
+        if (dot.x < 0) dot.x = w;
+        if (dot.x > w) dot.x = 0;
+        if (dot.y < 0) dot.y = h;
+        if (dot.y > h) dot.y = 0;
+
+        // desenhar ponto
+        ctx.fillStyle = "rgba(255,255,255,0.8)";
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+  </body>
+</html>
