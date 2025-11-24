@@ -83,4 +83,14 @@ input:focus {
         pointer-events: none; 
     }
 
-    
+
+    @media only screen and (max-width: 768px){
+        main{
+            width: 80%;
+        }
+        .btn{
+            padding: 20px 150px;
+            position: relative;
+            left: 25px;
+        }
+    }
