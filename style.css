@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 *{
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Inter", sans-serif;
 }
 
@@ -12,9 +13,11 @@ body{
 }
 
 main{
-    margin-top: 5%;
+    margin: 5% auto;
     width: 550px;
-    height: 600px;
+    max-width: 90%;
+    height: auto;
+    padding-bottom: 40px;
     background-color: rgba(0, 0, 0, 0.265);
     border: 1px solid #ffffff9c;
     border-radius: 10px;
@@ -27,36 +30,41 @@ h1{
 }
 
 p{
-    margin-top: 150px;
+    margin-top: 80px;
     color: #fff;
     text-align: center;
 }
 
 .btn{
-    padding: 20px 170px;
+    display: block;
+    padding: 20px;
+    width: 80%;
+    max-width: 320px;
     border-radius: 15px;
-background: #00C8FF;
-color: #000;
-    position: relative;
-    top: 80px;
-    left: 15%;
+    background: #00C8FF;
+    color: #000;
+    text-align: center;
+    margin: 80px auto 0 auto;
     text-decoration: none;
     transition: transform 0.25s ease;
 }
+
 .btn:hover{
-    transform: scale(1.0);
+    transform: scale(1.03);
     background-color: #006f8e;
 }
+
 input{
     display: block;
     padding: 10px;
-    margin-top: 70px;
+    margin: 40px auto 0 auto;
     border-radius: 10px;
-    width: 350px;
-    height: 30px;
+    width: 90%;
+    max-width: 350px;
+    height: 40px;
     text-align: center;
-   outline: none; 
-   transition: transform 0.25s ease, border-color 0.25s;
+    outline: none; 
+    transition: transform 0.25s ease, border-color 0.25s;
 }
 
 input:hover{
@@ -69,28 +77,43 @@ input:focus {
                 0 0 20px #006f8e;
 }
 
-    /* movimento do degradê */
-    @keyframes bgMove {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+/* movimento do degradê */
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
-    canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none; 
-    }
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+}
 
-
-    @media only screen and (max-width: 768px){
-        main{
-            width: 80%;
-        }
-        .btn{
-            padding: 20px 150px;
-            position: relative;
-            left: 25px;
-        }
+/* TELA MÉDIA (TABLETS) */
+@media only screen and (max-width: 768px){
+    main{
+        max-width: 90%;
     }
+}
+
+/* TELA PEQUENA (CELULARES) */
+@media only screen and (max-width: 480px){
+    h1{
+        font-size: 1.5rem;
+    }
+    p{
+        margin-top: 50px;
+        font-size: 0.9rem;
+    }
+    .btn{
+        width: 90%;
+        padding: 15px;
+        margin-top: 50px;
+        font-size: 1rem;
+    }
+    input{
+        height: 35px;
+    }
+}
