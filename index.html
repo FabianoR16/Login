@@ -1,83 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <main>
-      <div class="card">
-        <h1>Login</h1>
-        <form action="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <main>
+    <div class="card">
+      <h1>Login</h1>
+      <form action="">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+          </svg>
+
           <input type="text" name="user" placeholder="Digite o nome de Usuario" />
+        </div>
+
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M8 0a4 4 0 0 1 4 4v2.05a2.5 2.5 0 0 1 2 2.45v5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5v-5a2.5 2.5 0 0 1 2-2.45V4a4 4 0 0 1 4-4M4.5 7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7zM8 1a3 3 0 0 0-3 3v2h6V4a3 3 0 0 0-3-3" />
+          </svg>
 
           <input type="password" name="senha" placeholder="Digite sua Senha" />
+        </div>
+        <p class="senha-p"> <a href="#" class="senha-a"> <b>Esqueci minha senha </b></a>   </p>
+      </form>
 
-        </form>
+      <div class="google">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+  <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
+</svg>
 
-        <a href="#" class="btn">Login</a>
-
-        <p>Ainda não tem uma conta?  <b>Registre-se</b> </p>
+      <p class="p-google">
+        ENTRAR COM O GOOGLE
+      </p>
       </div>
-    </main>
+
+      <a href="#" class="btn">Login</a>
+
+      <p>
+        Ainda não tem uma conta?
+        <b>
+          <a href="register.html" class="a-register" target="_blank">
+            Registre-se
+          </a></b>
+      </p>
+    </div>
+  </main>
 
   <canvas id="canvas"></canvas>
 
-<script>
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
 
-let w, h;
+    let w, h;
 
-// ajustar ao tamanho da tela
-function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+    // ajustar ao tamanho da tela
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
 
-// criar partículas
-const dots = [];
-const DOTS = 150;
+    // criar partículas
+    const dots = [];
+    const DOTS = 150;
 
-for (let i = 0; i < DOTS; i++) {
-    dots.push({
+    for (let i = 0; i < DOTS; i++) {
+      dots.push({
         x: Math.random() * w,
         y: Math.random() * h,
         size: Math.random() * 2 + 1,
         vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4
+        vy: (Math.random() - 0.5) * 0.4,
+      });
+    }
+
+    let mouse = { x: null, y: null };
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     });
-}
 
-let mouse = { x: null, y: null };
+    function animate() {
+      ctx.clearRect(0, 0, w, h);
 
-window.addEventListener("mousemove", e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-});
-
-function animate() {
-    ctx.clearRect(0, 0, w, h);
-
-    dots.forEach(dot => {
+      dots.forEach((dot) => {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
         // efeito de repulsão leve ao mouse
         if (mouse.x != null) {
-            let dx = mouse.x - dot.x;
-            let dy = mouse.y - dot.y;
-            let dist = Math.sqrt(dx * dx + dy * dy);
+          let dx = mouse.x - dot.x;
+          let dy = mouse.y - dot.y;
+          let dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 120) {
-                dot.x -= dx / 50;
-                dot.y -= dy / 50;
-            }
+          if (dist < 120) {
+            dot.x -= dx / 50;
+            dot.y -= dy / 50;
+          }
         }
 
         // reaparecer do outro lado
@@ -91,13 +124,13 @@ function animate() {
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dot.size, 0, Math.PI * 2);
         ctx.fill();
-    });
+      });
 
-    requestAnimationFrame(animate);
-}
+      requestAnimationFrame(animate);
+    }
 
-animate();
-</script>
+    animate();
+  </script>
+</body>
 
-  </body>
 </html>

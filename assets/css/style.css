@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #000000, #1a1a1a, #000000);
+    height: 100vh;
+    display: flex;               
+    justify-content: center;     
+    align-items: center;
+}
+
+main{
+    margin: 5% auto;
+    width: 550px;
+    max-width: 90%;
+    height: auto;
+    padding-bottom: 40px;
+    backdrop-filter: blur(10px);
+background: rgba(255,255,255,0.05);
+    border: 1px solid #ffffff9c;
+    border-radius: 10px;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+}
+
+p{
+    margin-top: 80px;
+    color: #fff;
+    text-align: center;
+}
+
+.btn{
+    display: block;
+    padding: 20px;
+    width: 80%;
+    max-width: 320px;
+    border-radius: 15px;
+    background: #00C8FF;
+    color: #000;
+    text-align: center;
+    margin: 80px auto 0 auto;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+    z-index: 3;
+}
+
+.btn:hover{
+    transform: scale(1.03);
+    background-color: #006f8e;
+    z-index: 3;
+    border: 1px solid white;
+}
+
+.a-register{
+    color: #fff;
+    text-decoration: none;
+}
+
+input{
+    display: block;
+    padding: 10px;
+    margin: 40px auto 0 auto;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 350px;
+    height: 50px;
+    text-align: center;
+    outline: none; 
+    transition: transform 0.25s ease, border-color 0.25s;
+}
+
+input:hover{
+    border: 1px solid #00c8ff;
+}
+
+input:focus {
+    border-color: #00c8ff;
+    box-shadow: 0 0 10px #006f8d,
+                0 0 20px #006f8e;
+}
+
+.icon{
+    position: relative;
+    width: 90%;
+    max-width: 350px;
+    margin: 40px auto 0 auto;
+    
+}
+
+.icon input {
+    width: 100%;
+    padding: 12px 12px 12px 45px;  /* espaço pro ícone */
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: 0.25s;
+    text-align: left;
+}
+
+.icon svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px; 
+    height: 22px;
+    color: #000;
+    pointer-events: none;
+}
+
+.senha-p{
+    position: relative;
+    top: -65px;
+    left: -90px;
+    margin-bottom: -30px;
+}
+.senha-p:hover{
+    transform: scale(1.05);
+}
+
+.google{
+    margin: 40px auto 0 auto;
+    padding: 25px 20px;
+    background-color: #fff;
+    width: 300px;
+    height: 50px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.google:hover{
+    transform: scale(1.03);
+}
+
+.p-google{
+    margin: 0;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.senha-a{
+    color: white;
+    text-decoration: none
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* movimento do degradê */
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+}
+
+/* TABLETS */
+@media only screen and (max-width: 768px){
+    main{
+        max-width: 90%;
+    }
+}
+
+/* CELULARES */
+@media only screen and (max-width: 480px){
+    h1{
+        font-size: 1.5rem;
+    }
+    p{
+        margin-top: 50px;
+        font-size: 0.9rem;
+    }
+    .btn{
+        width: 90%;
+        padding: 15px;
+        margin-top: 50px;
+        font-size: 1rem;
+    }
+    input{
+        height: 35px;
+    }
+}
