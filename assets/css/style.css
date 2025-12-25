@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url("login.css");
+
+
+
+
+body{
+    margin: 0 auto;
+    padding: 0;
+    font-family: "Archivo", sans-serif;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.conteudo{
+    margin-top: 150px;
+    margin-left: 500px;
+}
+
+img{
+    float: left;
+    margin-top: 250px;
+    margin-left: 180px;
+}
+
+input{
+    display: block;
+    margin: 10px;
+    margin-bottom: 40px;
+    border: 1px solid;
+    border-color: #9b97977e;
+    padding: 10px;
+    width: 350px;
+
+      height: 48px;
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #1E9E6A;
+  box-shadow: 0 0 0 2px rgba(30, 158, 106, 0.2);
+}
+
+input:not(:placeholder-shown) {
+  border-color: #1E9E6A;
+}
+
+form {
+  margin-top: 24px;
+}
+
+form input {
+  margin-bottom: 24px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1A202C;
+}
+
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox span {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #535353;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* quando marcado */
+.checkbox input:checked + span {
+  background-color: #1E9E6A;
+  border-color: #1E9E6A;
+}
+
+/* check */
+.checkbox input:checked + span::after {
+  content: "✔";
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.lembre {
+    display: flex;
+    align-items: center;
+    gap: 8px;           
+    margin-left: 10px;
+}
+.lembre label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #1A202C;
+}
+
+.lembre p{
+    margin-left: 50px;
+}
+
+.lembre a{
+    text-decoration: none;
+    color: #1E9E6A;
+}
+
+.lembre input {
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+label{
+    margin-left: 10px;
+      font-size: 14px;
+  font-weight: 500;
+  color: #4A5568;
+  margin-bottom: 6px;
+  display: block;
+}
+
+
+h1, h2{
+    text-align: left;
+    color: #1A202C;
+}
+
+.btns {
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    padding: 10px;
+    width: 250px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #1E9E6A;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.btns:hover{
+      transition: all 0.2s ease;
+        transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 158, 106, 0.25);
+}
+
+.google{
+    background-color: #1A202C;
+    margin-bottom: 50px;
+}
+
+.img-google{
+  display: flex;
+  margin-top: 0;
+  margin-left: 0;
+  width: 30px;
+  height: 30px;
+}
+
+.p-cadastro{
+    text-align: center;
+}
+
+.a-cadastro{
+    color: #1E9E6A;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+
+/* RESPONSIVIDADE */
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  img{
+    width: 0;
+  }
+  .container{
+    width: 100%;
+    position: relative;
+    top: -225px;
+    left: -320px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Celulares */
+    img{
+    width: 0;
+  }
+  .container{
+    width: 100%;
+    position: relative;
+    top: -225px;
+    left: -470px;
+  }
+}
